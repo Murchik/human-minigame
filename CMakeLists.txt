@@ -6,6 +6,7 @@ file(GLOB all_SRCS "${PROJECT_SOURCE_DIR}/src/*.cpp")
 
 add_executable(${PROJECT_NAME} ${all_SRCS})
 
+find_package(OpenGL REQUIRED)
 
 add_subdirectory(lib/GLFW)
 
@@ -17,12 +18,14 @@ set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
 target_include_directories(${PROJECT_NAME}
     PUBLIC include
     PUBLIC lib/GLFW/include
+    ${OPENGL_INCLUDE_DIRS}
 )
 
-target_link_directories(${PROJECT_NAME} PRIVATE lib/GLFW/src)
+target_link_directories(${PROJECT_NAME}
+    PRIVATE lib/GLFW/src
+)
 
-find_package(OpenGL REQUIRED)
 target_link_libraries(${PROJECT_NAME}
     glfw
-    opengl32 # TODO: change to PACKAGE_FIND_NAME found by find_package(OpenGL REQUIRED)
+    ${OPENGL_LIBRARIES}
 )
