@@ -22,8 +22,13 @@ class Window {
 
     void OnUpdate();
 
-    int GetWidth() { return m_Data.Width; }
-    int GetHeight() { return m_Data.Height; }
+    void SetVSync(bool isEnabled);
+
+    int GetWidth() const { return m_Data.Width; }
+    int GetHeight() const { return m_Data.Height; }
+    bool IsVSync() const { return m_Data.VSync; }
+
+    static Window* Create(const WindowProps& props = WindowProps());
 
    private:
     GLFWwindow* m_Window;
@@ -31,6 +36,7 @@ class Window {
     struct WindowData {
         std::string Title;
         unsigned int Width, Height;
+        bool VSync;
     };
 
     WindowData m_Data;

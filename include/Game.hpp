@@ -1,5 +1,7 @@
 #pragma once
 
+#include <memory>
+
 #include "GLFW/glfw3.h"
 #include "Window.hpp"
 
@@ -10,10 +12,11 @@ class Game {
     Game();
     ~Game();
 
-    void run();
+    void Run();
 
    private:
-    Window m_window{WindowProps{"Human Game", 960, 720}};
+    std::unique_ptr<Window> m_window;
+    bool m_IsRunning = true;
 };
 
 }  // namespace MyGame
