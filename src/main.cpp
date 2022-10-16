@@ -1,7 +1,7 @@
-#include "hello.hpp"
+#include "Game.hpp"
 
-int main(void) {
-    hello h;
-    h.run();
+int main() {
+    MyGame::Game game;
+    game.run();
     return 0;
 }
