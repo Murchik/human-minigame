@@ -1,3 +1,8 @@
 #pragma once
 
-void hello();
+class hello {
+   public:
+    hello(/* args */);
+    ~hello();
+    int run();
+};

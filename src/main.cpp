@@ -1,6 +1,7 @@
 #include "hello.hpp"
 
-int main() {
-    hello();
+int main(void) {
+    hello h;
+    h.run();
     return 0;
 }
