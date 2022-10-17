@@ -45,6 +45,11 @@ void Game::Run() {
 void Game::OnEvent(Event& e) {
     // Print name of event
     std::cout << e.GetNameToString() << std::endl;
+
+    // Handle WindowCloseEvent
+    if (e.GetEventType() == EventType::WindowClose) {
+        m_IsRunning = false;
+    }
 }
 
 }  // namespace MyGame
