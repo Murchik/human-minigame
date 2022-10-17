@@ -1,12 +1,19 @@
 #include "Game.hpp"
 
+#include <iostream>
+
 #include "GLFW/glfw3.h"
 
 namespace MyGame {
 
 Game::Game() {
+    // Create window
     m_window = std::unique_ptr<Window>(
         Window::Create(WindowProps{"MyGame", 800, 600}));
+
+    // Set Game::OnEvent method to be window callback function
+    m_window->SetEventCallbackFunc(
+        std::bind(&Game::OnEvent, this, std::placeholders::_1));
 }
 
 Game::~Game() {}
@@ -33,6 +40,11 @@ void Game::Run() {
         glClear(GL_COLOR_BUFFER_BIT);
         m_window->OnUpdate();
     }
+}
+
+void Game::OnEvent(Event& e) {
+    // Print name of event
+    std::cout << e.GetNameToString() << std::endl;
 }
 
 }  // namespace MyGame

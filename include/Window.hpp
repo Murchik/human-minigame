@@ -1,8 +1,10 @@
 #pragma once
 
+#include <functional>
 #include <string>
 
 #include "GLFW/glfw3.h"
+#include "events/Event.hpp"
 
 namespace MyGame {
 
@@ -17,12 +19,17 @@ struct WindowProps {
 
 class Window {
    public:
+    using EventCallbackFunc = std::function<void(Event&)>;
+
     Window(const WindowProps& props);
     ~Window();
 
     void OnUpdate();
 
     void SetVSync(bool isEnabled);
+    inline void SetEventCallbackFunc(const EventCallbackFunc& callback) {
+        m_Data.EventCallback = callback;
+    }
 
     int GetWidth() const { return m_Data.Width; }
     int GetHeight() const { return m_Data.Height; }
@@ -37,6 +44,7 @@ class Window {
         std::string Title;
         unsigned int Width, Height;
         bool VSync;
+        EventCallbackFunc EventCallback;
     };
 
     WindowData m_Data;
