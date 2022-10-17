@@ -2,7 +2,6 @@
 
 #include <iostream>
 
-#include "GLFW/glfw3.h"
 #include "events/WindowEvent.hpp"
 
 namespace MyGame {

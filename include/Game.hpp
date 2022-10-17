@@ -2,7 +2,6 @@
 
 #include <memory>
 
-#include "GLFW/glfw3.h"
 #include "Window.hpp"
 
 namespace MyGame {
