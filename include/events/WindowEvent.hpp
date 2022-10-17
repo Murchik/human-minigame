@@ -9,6 +9,7 @@ namespace MyGame {
 class WindowCloseEvent : public Event {
    public:
     WindowCloseEvent() {}
+    virtual ~WindowCloseEvent() {}
 
     virtual int GetCategoryFlags() const override {
         return EventCategoryWindow;

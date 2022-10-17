@@ -10,7 +10,7 @@ namespace MyGame {
 
 struct WindowProps {
     std::string Title;
-    unsigned int Width, Height;
+    int Width, Height;
 
     WindowProps(const std::string& title = "Default window",
                 unsigned int width = 1280, unsigned int height = 720)
@@ -42,7 +42,7 @@ class Window {
 
     struct WindowData {
         std::string Title;
-        unsigned int Width, Height;
+        int Width, Height;
         bool VSync;
         EventCallbackFunc EventCallback;
     };
