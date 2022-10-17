@@ -42,10 +42,10 @@ void Game::Run() {
         if (i >= 255) {
             i = 0;
             decColor += 1;
-            incColor = decColor == 2 ? 0 : decColor + 1;
             if (decColor >= 3) {
                 decColor = 0;
             }
+            incColor = decColor == 2 ? 0 : decColor + 1;
         }
 
         // Set calculated color
