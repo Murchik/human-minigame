@@ -31,6 +31,14 @@ Window::Window(const WindowProps& props) {
     glfwMakeContextCurrent(m_Window);
     SetVSync(true);
 
+    // Set up view
+    glViewport(0, 0, m_Data.Width, m_Data.Height);
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    // See https://www.opengl.org/sdk/docs/man2/xhtml/glOrtho.xml
+    glOrtho(0, m_Data.Width, 0, m_Data.Height, 0.0, 1.0);
+    glMatrixMode(GL_MODELVIEW);
+
     // Set GLFW user pointer to m_Data struct
     glfwSetWindowUserPointer(m_Window, &m_Data);
 
