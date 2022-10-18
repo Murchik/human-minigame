@@ -18,7 +18,6 @@ target_include_directories(${PROJECT_NAME} PRIVATE lib/glad/include)
 target_link_libraries(${PROJECT_NAME} glad_opengl_4.6)
 
 # GLFW options
-set(BUILD_SHARED_LIBS STATIC CACHE STRING "" FORCE)
 set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
