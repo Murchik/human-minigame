@@ -2,8 +2,6 @@
 
 #include <iostream>
 
-#include "GLFW/glfw3.h"  // TEMP: Only for test
-
 namespace MyGame {
 
 // TEMP: Only for test

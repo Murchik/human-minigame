@@ -14,7 +14,7 @@ Window::Window(const WindowProps& props) {
 
     // Init GLFW library
     if (!glfwInit()) {
-        std::cout << "Couldn't initialize the GLFW library" << std::endl;
+        std::cout << "Failed to initialize the GLFW library" << std::endl;
         exit(EXIT_FAILURE);
     }
 
@@ -29,6 +29,13 @@ Window::Window(const WindowProps& props) {
 
     // Make the context of the specified window current for the calling thread
     glfwMakeContextCurrent(m_Window);
+
+    // Load all OpenGL functions using the glfw loader function
+    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
+        std::cout << "Failed to initialize OpenGL context" << std::endl;
+        exit(EXIT_FAILURE);
+    }
+
     SetVSync(true);
 
     // Set up view
