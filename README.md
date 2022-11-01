@@ -3,6 +3,7 @@ A project.
 
 ## Project uses:
 * GLFW (multi-platform library for OpenGL): https://www.glfw.org/
+* GLAD (GL loader): https://glad.dav1d.de/
 
 ## Get started:
 ```
