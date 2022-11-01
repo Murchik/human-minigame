@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.1)
+cmake_minimum_required(VERSION 3.11)
 
 project(human-minigame)
 
@@ -8,6 +8,7 @@ add_executable(${PROJECT_NAME} ${all_SRCS})
 target_include_directories(${PROJECT_NAME} PUBLIC include)
 
 # OpenGl
+set(OpenGL_GL_PREFERENCE GLVND)
 find_package(OpenGL REQUIRED)
 target_include_directories(${PROJECT_NAME} PRIVATE ${OPENGL_INCLUDE_DIRS})
 target_link_libraries(${PROJECT_NAME} ${OPENGL_LIBRARIES})
